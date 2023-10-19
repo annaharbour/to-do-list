@@ -38,13 +38,13 @@ class ToDo extends Component {
     render() {
         if (this.state.isEditing) {
             return (
-                <div className='to-do'>
+                <div className='todo'>
                     <input
                         type="text"
                         value={this.state.updatedTask}
                         onChange={this.handleTaskChange}
                     />
-                    <button className='edit' onClick={this.handleSaveClick}><i className="fas fa-save"></i></button>
+                    <button className='save' onClick={this.handleSaveClick}><i className="fas fa-save"></i></button>
                 </div>
             );
         }

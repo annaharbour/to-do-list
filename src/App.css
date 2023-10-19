@@ -16,7 +16,6 @@ html {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
-    display: flex; 
     background-image: url('../public/images/todobg-landscape.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,39 +23,69 @@ html {
     background-attachment: center;
 }
 
-/* To Do Form */
-
+/* .App {
+    margin: 5% 25%;    
+}
 
 .todos {
     display: flex;
     flex-flow: column;
-    list-style: none;
-    flex-wrap: wrap;
-    justify-content: left;
+    flex-wrap: wrap; 
 }
 
 .todo {
-    margin: 1rem;
-    flex-basis: calc(33.33% - 2rem);
-    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: "task buttons";
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
 }
 
-.todo .action-buttons {
+.task {
+    grid-area: "task";
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.App {
+    margin: 5% 25%;    
+}
+
+.todos {
+    column-count: 2; 
+}
+
+.todo {
+    display: grid;
+    grid-template-areas: "task buttons";
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.task {
+    grid-area: task;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+button:hover {
+    color: #E3A6C1;
+}
+
+.action-buttons {
     display: grid;
     grid-auto-flow: column;
 }
 
-.todo button, .todo-form button {
+button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    margin: .5rem;
 }
-
-
-.todo button:hover {
-    color: #E3A6C1;
-}
-
 
 .completed {
     text-decoration: line-through;
@@ -67,5 +96,17 @@ html {
 @media screen and (orientation: portrait) {
     html {
         background-image: url('../public/images/todobg-mobile.jpg');
+    }
+
+    .App {
+        margin: 10rem 5rem;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+    
+    .todos {
+    column-count: 1; 
     }
 }
