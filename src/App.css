@@ -17,34 +17,11 @@ html {
     height: 100vh;
     width: 100vw;
     display: flex; 
-    
-}
-
-.App {
-    position: relative;
-    background-color: transparent;
-}
-
-.background {
-    position: fixed;
-    z-index: -1;   
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
     background-image: url('../public/images/todobg-landscape.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: center;
-}
-.content {
-    position: relative;
-    display: grid;
-    margin: 5rem 30rem;
-    width: auto;
 }
 
 /* To Do Form */
@@ -88,7 +65,7 @@ html {
 } 
 
 @media screen and (orientation: portrait) {
-    .background {
+    html {
         background-image: url('../public/images/todobg-mobile.jpg');
     }
 }
