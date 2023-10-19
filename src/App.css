@@ -23,30 +23,6 @@ html {
     background-attachment: center;
 }
 
-/* .App {
-    margin: 5% 25%;    
-}
-
-.todos {
-    display: flex;
-    flex-flow: column;
-    flex-wrap: wrap; 
-}
-
-.todo {
-    display: grid;
-    grid-template-areas: "task buttons";
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    align-items: center;
-}
-
-.task {
-    grid-area: "task";
-    display: flex;
-    flex-wrap: wrap;
-} */
-
 .App {
     margin: 5% 25%;    
 }
@@ -64,7 +40,7 @@ html {
 .todo {
     border: 1px solid black;
     border-radius: 5px;
-    max-width: 20rem; /* Set a maximum width for each todo */
+    max-width: 20rem; 
     display: flex;
     align-items: center;
     justify-content: left;
@@ -97,9 +73,25 @@ button {
 
 .completed {
     text-decoration: line-through;
-    transition: text-decoration 20s linear; /* Adjust the duration to control the speed */
-
 } 
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input {
+    width: 50rem;
+    border-radius: 5px;
+    border: none;
+}
+
+input:focus {  
+    outline: .1rem solid #E3A6C1;
+}
+
 
 @media screen and (orientation: portrait) {
     html {
@@ -115,6 +107,12 @@ button {
     }
     
     .todos {
-    column-count: 1; 
+        margin-top: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+        max-height: 15rem;
+    }
+
+    input {
+        width: 10rem;
     }
 }
