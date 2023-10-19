@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Times New Roman', sans-serif;
+  
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+html {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex; 
+    
+}
+
+.App {
+    position: relative;
+    background-color: transparent;
+}
+
+.background {
+    position: fixed;
+    z-index: -1;   
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../public/images/todobg-landscape.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: center;
+}
+.content {
+    position: relative;
+    display: grid;
+    margin: 5rem 30rem;
+    width: auto;
+}
+
+/* To Do Form */
+
+
+.todos {
+    display: flex;
+    flex-flow: column;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.todo {
+    margin: 1rem;
+    flex-basis: calc(33.33% - 2rem);
+    box-sizing: border-box;
+}
+
+.todo .action-buttons {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.todo button, .todo-form button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.todo button:hover {
+    color: #E3A6C1;
+}
+
+
+.completed {
+    text-decoration: line-through;
+    transition: text-decoration 20s linear; /* Adjust the duration to control the speed */
+
+} 
+
+@media screen and (orientation: portrait) {
+    .background {
+        background-image: url('../public/images/todobg-mobile.jpg');
+    }
+}

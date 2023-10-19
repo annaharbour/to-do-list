@@ -28,9 +28,9 @@ class ToDoForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form className="todo-form" onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} value={this.state.task} name="task" type='text'></input>
-                    <button type="submit" value="submit">Add ToDo</button>
+                    <button type="submit" value="submit"><i class="fa-solid fa-plus"></i></button>
                 </form>
             </div>
         );

@@ -33,12 +33,18 @@ class ToDoList extends Component {
         
     }
 
-    completeToDo(id, completeToDo){
+    completeToDo(id) {
+        const updatedToDos = this.state.todos.map(todo => {
+            if (todo.id === id) {
+                return { ...todo, completed: !todo.completed };
+            }
+            return todo;
+        });
         this.setState({
-
-        })
+           todos: updatedToDos 
+        });
     }
-
+    
 
     createToDo(newToDo){
         this.setState({
@@ -47,14 +53,14 @@ class ToDoList extends Component {
     }
     render() {
         const todos = this.state.todos.map(todo => {
-            return <li key={todo.id}><ToDo id={todo.id} saveToDo={this.saveToDo} deleteToDo={this.deleteToDo} completeToDo={this.completeToDo} task={todo.task}/></li>
+            return <li key={todo.id}><ToDo id={todo.id} saveToDo={this.saveToDo} deleteToDo={this.deleteToDo} completeToDo={this.completeToDo} completed={todo.completed} task={todo.task}/></li>
         })
         return (
             <div>
-                <ul>
+                <ToDoForm createToDo={this.createToDo}/>
+                <ul className='todos'>
                     {todos}
                 </ul>
-                <ToDoForm createToDo={this.createToDo}/>
             </div>
         );
     }

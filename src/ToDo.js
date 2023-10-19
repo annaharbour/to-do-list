@@ -5,10 +5,16 @@ class ToDo extends Component {
         super(props);
         this.state = {
             isEditing: false,
-            updatedTask: this.props.task
+            updatedTask: this.props.task,
+            completed: false
         };
         this.onDeleteClick = this.onDeleteClick.bind(this);
-        this.onEditClick = this.onEditClick.bind(this)
+        this.onEditClick = this.onEditClick.bind(this);
+        this.completeToDo = this.completeToDo.bind(this);
+    }
+
+    completeToDo(){
+        this.props.completeToDo(this.props.id);
     }
 
     onDeleteClick(){
@@ -38,15 +44,18 @@ class ToDo extends Component {
                         value={this.state.updatedTask}
                         onChange={this.handleTaskChange}
                     />
-                    <button className='edit' onClick={this.handleSaveClick}>Save</button>
+                    <button className='edit' onClick={this.handleSaveClick}><i className="fas fa-save"></i></button>
                 </div>
             );
         }
 
         return (
-            <div className='to-do'>
-                <button className='edit' onClick={this.onEditClick}>Edit</button>
-                <button className='delete' onClick={this.onDeleteClick}>X</button>
+            <div className={`todo ${this.props.completed ? 'completed' : ''}`}>
+                <div className='action-buttons'>
+                    <button className='edit' onClick={this.onEditClick}><i className="fa-solid fa-pencil"></i></button>
+                    <button className='delete' onClick={this.onDeleteClick}><i className="fa-solid fa-trash"></i></button>
+                    <button className='complete' onClick={this.completeToDo}><i className="fa-solid fa-check"></i></button>
+                </div>
                 <div className='task'>{this.props.task}</div>
             </div>
         );
