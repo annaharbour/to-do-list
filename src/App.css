@@ -52,32 +52,40 @@ html {
 }
 
 .todos {
-    column-count: 2; 
+    list-style: none;
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+    max-height: 30rem;
+    overflow-y: auto; 
 }
 
 .todo {
-    display: grid;
-    grid-template-areas: "task buttons";
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: 20rem; /* Set a maximum width for each todo */
+    display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content: left;
 }
+
+.todo:hover {
+    opacity: 0.5;
+}
+
 
 .task {
-    grid-area: task;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
-button:hover {
-    color: #E3A6C1;
+    margin-left: 1rem;
 }
 
 .action-buttons {
     display: grid;
     grid-auto-flow: column;
+} 
+
+button:hover {
+    color: #E3A6C1;
 }
 
 button {
