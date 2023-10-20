@@ -1,8 +1,10 @@
+  @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', 'Times New Roman', sans-serif;
+    font-family: 'Delicious Handrawn', cursive, 'Poppins', 'Times New Roman', sans-serif;
   
   }
   
@@ -68,6 +70,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: left;
+    font-family: inherit;
 }
 
 .todo:hover {
