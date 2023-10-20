@@ -40,7 +40,13 @@ html {
 }
 
 .App {
-    margin: 5% 25%;    
+    margin: 5% 25%; 
+}
+
+.todo-form {
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 .todos {
@@ -76,7 +82,13 @@ html {
 .action-buttons {
     display: grid;
     grid-auto-flow: column;
-} 
+}
+
+.todo-form button  {
+    color: black;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
 
 button:hover {
     color: #E3A6C1;
