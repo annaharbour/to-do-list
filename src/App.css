@@ -42,8 +42,11 @@ html {
 }
 
 .App {
-    margin: 5% 25%; 
+    /* margin: 5% 25%;  */
+    margin: 5% auto;
+    width: 50%;
 }
+
 
 .todo-form {
     display: flex;
@@ -53,12 +56,12 @@ html {
 
 .todos {
     list-style: none;
-    margin-top: 5rem;
+    margin-top: 1rem;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px; 
-    max-height: 30rem;
+    max-height: 40rem;
     overflow-y: auto; 
     scrollbar-color: black;
 }
@@ -66,7 +69,7 @@ html {
 .todo {
     border: 1px solid black;
     border-radius: 5px;
-    max-width: 20rem; 
+    width: 100%; 
     display: flex;
     align-items: center;
     justify-content: left;
@@ -117,7 +120,8 @@ textarea {
 }
 
 input {
-    width: 30rem;
+    /* width: 30rem; */
+    width: 100%;
     border-radius: 5px;
     border: none;
 }
@@ -126,15 +130,77 @@ input:focus {
     outline: .1rem solid #E3A6C1;
 }
 
+/* Tablets Landscape */
 
-@media screen and (orientation: portrait) {
+@media screen and (orientation: landscape) and (min-width: 1180px) and (max-width: 1400px){
+    .App {
+        margin: 15% auto;
+}
+   .todos {
+        max-height: 20rem;
+}
+}  
+
+@media screen and (orientation: landscape) and (max-width: 1180px){
+    .App {
+        margin: 15% auto;
+    }
+    .todos {
+        max-height: 20rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}  
+
+@media screen and (orientation: landscape) and (max-width: 1024px){
+    .App {
+        margin: 10% auto;
+    }
+}  
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 800px){
+    .App {
+        margin: 15% auto;
+    }
+}  
+
+@media screen and (orientation: landscape) and (max-width: 1024px) and (max-height: 600px){
+    .App {
+        margin: 10% auto;
+    }
+}  
+
+/* Phone Landscape */
+
+@media screen and (orientation: landscape) and (max-width: 915px){
+    .App {
+    margin: 5% auto;
+}
+.todos {
+    max-height: 15rem;
+    width: 100%
+}
+}  
+
+@media screen and (orientation: landscape) and (max-width: 750px){
+    .App {
+    margin: 10% auto;
+}
+
+.todos {
+    max-height: 10rem;
+}
+}  
+
+/* iPhone XR, iPhone 12 Pro, Pixel 5, Samsung Galaxy 8, Samsung Galaxys */
+
+@media screen and (orientation: portrait){
     html {
         background-image: url('../public/images/todobg-mobile.jpg');
     }
 
     .App {
-        margin: 10rem auto;
-        width: 50%;
+        margin: 50% auto;
+        width: 80%;
     }
 
     h1 {
@@ -144,230 +210,40 @@ input:focus {
     .todos {
         margin-top: 1rem;
         grid-template-columns: repeat(1, 1fr);
-        max-height: 15rem;
+        height: 40vh;
         width: 100%;
-    }
-
-    input {
-        width: 10rem;
     }
 
     button {
-        margin: .1rem
+        margin: .2rem;
+        font-size: 1rem;
     }
 }
 
-@media screen and (max-width: 915px) and (orientation: portrait){
+
+/*  iPhone SE */
+
+@media screen and (max-height: 667px) and (orientation: portrait){
     .App {
-        margin: 18rem auto;
-        width: 50%;
-    }
-
-
-    .todos {
-        max-height: 40rem;
+        margin: 40% auto;
+        width: 70%;
     }
 }
 
+/* Galaxy Fold */
 
-
-@media screen and (max-width: 820px) and (orientation: portrait){
+@media screen and (max-width: 300px) and (orientation: portrait){
     .App {
-        margin: 18rem auto;
-        width: 50%;
-    }
-
-
-    .todos {
-        max-height: 30rem;
-        width: 100%;
+        margin: 50% auto;
+        width: 90%;
     }
 }
 
-@media screen and (max-width: 768px) and (orientation: portrait){
+/* Tablets */
+
+@media screen and (min-width: 540px) and (orientation: portrait){
     .App {
-        margin: 15rem auto;
-        width: 50%;
-    }
-
-
-    .todos {
-        max-height: 30rem;
-        width: 100%;
+        margin: 30% auto;
+        width: 60%;
     }
 }
-
-@media screen and (max-width: 550px) and (orientation: portrait){
-    .App {
-        margin: 10rem auto;
-        width: 50%;
-    }
-
-    .todos {
-        max-height: 20rem;
-
-    }
-}
-
-
-
-
-
-@media screen and (max-width: 1380px) and (orientation: landscape){
-    .App {
-        margin: 10rem auto;
-        width: 50%;
-    }
-
-    .todos {
-        margin-top: 1rem;
-        max-height: 25rem;
-
-    }
-}
-
-
-@media screen and (max-width: 1024px) and (orientation: landscape){
-    .App {
-        margin: 10rem auto;
-        width: 50%;
-    }
-
-    .todos {
-        max-height: 20rem;
-
-    }
-}
-
-
-@media screen and (max-width: 1024px) and (max-height: 600px) and (orientation: landscape){
-    .App {
-        margin: 5rem auto;
-        width: 50%;
-    }
-
-    .todos {
-        max-height: 20rem;
-
-    }
-}
-
-@media screen and (max-width: 915px) and (orientation: landscape){
-    .App {
-        margin: 2rem auto;
-        width: 50%;
-    }
-
-    input {
-        width: 20rem;
-    }
-
-    .todos {
-        max-height: 15rem;
-    }
-}
-
-@media screen and (max-width: 896px) and (orientation: landscape){
-    .App {
-        margin: 2rem auto;
-        width: 50%;
-    }
-
-    input {
-        width: 20rem;
-    }
-
-    .todos {
-        max-height: 15rem;
-
-    }
-}
-
-@media screen and (max-width: 740px) and (orientation: landscape){
-    .App {
-        margin: 7rem auto;
-        width: 50%;
-    }
-
-    input {
-        width: 15rem;
-    }
-
-    .todos {
-        max-height: 13rem;
-
-    }
-}
-
-
-@media screen and (max-width: 740px) and (max-height: 400px) and (orientation: landscape){
-    .App {
-        margin: 2rem auto;
-        width: 50%;
-    }
-
-    input {
-        width: 15rem;
-    }
-
-    .todos {
-        max-height: 13rem;
-
-    }
-}
-
-@media screen and (max-width: 717px) and (orientation: landscape){
-    .App {
-        margin: 6rem auto;
-        width: 50%;
-    }
-
-    input {
-        width: 15rem;
-    }
-
-    .todos {
-        max-height: 13rem;
-    }
-}
-
-@media screen and (max-width: 667px) and (orientation: landscape){
-    .App {
-        margin: 3rem auto;
-        width: 50%;
-    }
-
-    input {
-        width: 15rem;
-    }
-
-    .todos {
-        max-height: 10rem;
-    }
-}
-
-@media screen and (max-width: 500px) and (orientation: portrait){
-    .App {
-        margin: 12rem auto;
-        width: 50%;
-    }
-
-    .todos {
-        max-height: 25rem;
-        width: 100%
-    }
-}
-
-
-@media screen and (max-width: 375px) and (orientation: portrait){
-    .App {
-        margin: 10rem auto;
-        width: 50%
-    }
-
-    .todos {
-        max-height: 18rem;
-        width: 100%;
-    }
-}
-
