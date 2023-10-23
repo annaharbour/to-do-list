@@ -56,7 +56,8 @@ class ToDoList extends Component {
             return <li key={todo.id}><ToDo id={todo.id} saveToDo={this.saveToDo} deleteToDo={this.deleteToDo} completeToDo={this.completeToDo} completed={todo.completed} task={todo.task}/></li>
         })
         return (
-            <div>
+            <div className='App'>
+                <h1>To Do List</h1>
                 <ToDoForm createToDo={this.createToDo}/>
                 <ul className='todos'>
                     {todos}

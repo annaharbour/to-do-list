@@ -47,6 +47,51 @@ html {
     width: 50%;
 }
 
+.logout {
+    position: absolute;
+    top: 0;
+    right: 1%;
+    font-size: 1rem;
+    border: white 1px solid;
+    padding: .5rem;
+    border-radius: 5%;
+    box-shadow: 1px 1px 1px grey;
+    background-color: white;
+}
+
+.logout:active {
+    box-shadow: .1px .1px .1px grey;
+}
+
+.signin-signup {
+    padding: .5rem;
+    border-radius: 5%;
+    font-size: 1rem;
+    box-shadow: 1px 1px 1px grey;
+}
+
+.signin-signup:hover {
+    padding: .5rem;
+    border-radius: 5%;   
+    box-shadow: 1px 1px 1px grey;
+    color: #E2A6C0
+}
+
+.signin-signup:active {
+    padding: .5rem;
+    border-radius: 5%;   
+    box-shadow: .1px .1px .1px grey;
+    color: #E2A6C0
+}
+
+.logout:hover {
+    background-color: grey;
+    color: white;
+}
+
+.logout button {
+    position: absolute;
+}
 
 .todo-form {
     display: flex;
@@ -129,6 +174,7 @@ input {
 input:focus {  
     outline: .1rem solid #E3A6C1;
 }
+
 
 /* Tablets Landscape */
 

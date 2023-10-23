@@ -30,7 +30,7 @@ class ToDoForm extends Component {
             <div>
                 <form className="todo-form" onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} value={this.state.task} name="task" type='text'></input>
-                    <button type="submit" value="submit"><i class="fa-solid fa-plus"></i></button>
+                    <button type="submit" value="submit"><i className="fa-solid fa-plus"></i></button>
                 </form>
             </div>
         );
