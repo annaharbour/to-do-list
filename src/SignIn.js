@@ -48,7 +48,7 @@ export const SignIn = () => {
 
   return (
     <div className='App'>
-        <h3>Sign In</h3>
+        <h1>Sign In</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor='email'>Email</label>
             <input type='email'
