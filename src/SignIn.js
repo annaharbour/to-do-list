@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {Link, useNavigate} from "react-router-dom"
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify'
 
 export const SignIn = () => {
+    const [errorMessage, setErrorMessage] = useState(''); // State to store error message
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState({
         email: "",
@@ -17,16 +17,6 @@ export const SignIn = () => {
             [name] : value
         });
     }
-    const handleSuccess = (message) => {
-        toast.success(message, {
-            position: "top-right"
-        })
-    }
-    const handleError = (err) => {
-        toast.error(err, {
-            position: "top-right"
-        })
-    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -39,12 +29,11 @@ export const SignIn = () => {
             console.log(data);
             const {success, message} = data;
             if(success){
-                // handleSuccess(message);
             setTimeout(() => {
                 navigate('/')
             }, 1000)
             } else {
-                handleError(message);
+                setErrorMessage(message);
             }
         }
         catch(err){
@@ -77,8 +66,9 @@ export const SignIn = () => {
             />
             <button className="signin-signup" type="submit">Submit</button>
         </form>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
         <span>No account? <Link to="/signup">Sign up!</Link></span>
-        <ToastContainer/>
+        
     </div>
   )
 }
