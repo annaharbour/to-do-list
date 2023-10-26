@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom"
 import axios from 'axios'
 
 export const SignIn = () => {
-    const [errorMessage, setErrorMessage] = useState(''); // State to store error message
+    const [errorMessage, setErrorMessage] = useState(''); 
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState({
         email: "",
