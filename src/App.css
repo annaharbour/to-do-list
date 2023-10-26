@@ -121,11 +121,6 @@ html {
     font-family: inherit;
 }
 
-.todo:hover {
-    opacity: 0.5;
-}
-
-
 .task {
     margin-left: 1rem;
 }

@@ -13,48 +13,97 @@ class ToDoList extends Component {
         this.deleteToDo = this.deleteToDo.bind(this);
         this.completeToDo = this.completeToDo.bind(this);
         this.saveToDo = this.saveToDo.bind(this);
-        
     }
 
-    deleteToDo(id){
-        this.setState({
-            todos: this.state.todos.filter(todo=>todo.id !== id)
-        })
+    
+    componentDidMount() {
+        this.fetchUserTasks();
     }
+
+    componentWillUnmount() {
+        this.setState({ isMounted: false }); 
+    }
+
+
+    fetchUserTasks(){
+        axios.get('http://localhost:4000/tasks')
+             .then(response => {
+                this.setState({
+                    todos: response.data
+                });
+             })
+             .catch(error => {
+                console.error('Error fetching tasks:', error);
+             });
+    }
+
+    deleteToDo(id) {
+        axios.delete(`http://localhost:4000/tasks/${id}`)
+            .then(response => {
+                if (response.status === 200) {
+                    this.fetchUserTasks();
+                    this.setState(prevState => ({
+                        todos: prevState.todos.filter(todo => todo.id !== id)
+                    }));
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting task:', error);
+            });
+    }  
     
     saveToDo(id, updatedTask){
-        const updatedToDos = this.state.todos.map(todo => {
-            if (todo.id === id){
-                return {...todo, task: updatedTask};
-            }
-            return todo;
-        });
-        this.setState({
-           todos: updatedToDos 
+    axios.put(`http://localhost:4000/tasks/${id}`, { task: updatedTask }) 
+        .then(response => {
+            this.fetchUserTasks()
+            this.setState(prevState => ({
+                todos: prevState.todos.map(todo => {
+                    if (todo.id === id) {
+                        return { ...todo, task: updatedTask };
+                    }
+                    return todo;
+                }),
+            })
+            
+            );
+        })
+        .catch(error => {
+            console.error('Error updating task:', error);
         });
         
     }
 
-    completeToDo(id) {
-        const updatedToDos = this.state.todos.map(todo => {
-            if (todo.id === id) {
-                return { ...todo, completed: !todo.completed };
-            }
-            return todo;
-        });
-        this.setState({
-           todos: updatedToDos 
-        });
+    completeToDo(id, completed) {
+        axios.put(`http://localhost:4000/tasks/${id}`, { completed: !completed })
+            .then(response => {
+                this.fetchUserTasks(); 
+            })
+            .catch(error => {
+                console.error('Error completing task:', error);
+            });
     }
-    
+      
     createToDo(newToDo){
-        this.setState({
-            todos: [...this.state.todos, newToDo]
+        axios.post('http://localhost:4000/tasks', newToDo) 
+        .then(response => {
+            this.setState(prevState => ({
+                todos: [...prevState.todos, response.data],
+            }));
         })
+        .catch(error => {
+            console.error('Error creating task:', error);
+        });
+
     }
     render() {
         const todos = this.state.todos.map(todo => {
-            return <li key={todo.id}><ToDo id={todo.id} saveToDo={this.saveToDo} deleteToDo={this.deleteToDo} completeToDo={this.completeToDo} completed={todo.completed} task={todo.task}/></li>
+            return <li key={todo._id}>
+                    <ToDo id={todo._id} 
+                    saveToDo={this.saveToDo} 
+                    deleteToDo={this.deleteToDo} 
+                    completeToDo={() => this.completeToDo(todo._id, todo.completed)} 
+                    completed={todo.completed} 
+                    task={todo.task}/></li>
         })
         return (
             <div className='App'>
