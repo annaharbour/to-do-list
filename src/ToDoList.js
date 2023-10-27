@@ -14,7 +14,6 @@ class ToDoList extends Component {
         this.completeToDo = this.completeToDo.bind(this);
         this.saveToDo = this.saveToDo.bind(this);
     }
-
     
     componentDidMount() {
         this.fetchUserTasks();
