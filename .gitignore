@@ -27,4 +27,4 @@ yarn-error.log*
 
 # process.env
 
-server/util/.env
+.env*
